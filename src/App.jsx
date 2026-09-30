@@ -1,45 +1,70 @@
-import Content from './components/Content';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+// Importing the components
+import Content from './components/Content'; 
+import Header from './components/Header'; 
+import Footer from './components/Footer'; 
 
-import { BrowserRouter,Routes,Route} from 'react-router-dom'
+// Importing bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css'; 
 
-function App() {
+// Importing bootstrap components
+import Container from 'react-bootstrap/Container'; 
+import Nav from 'react-bootstrap/Nav'; 
+import Navbar from 'react-bootstrap/Navbar'; 
  
+// Importing react router
+import { BrowserRouter,Routes,Route} from 'react-router-dom' 
+ 
+function App() { 
+  
+ 
+  return ( 
+    <div> 
+      {/* Used for navigating between pages */}
+      <BrowserRouter> 
+ 
+     {/* Navigation bar */}
+     <Navbar bg="primary" data-bs-theme="dark"> 
+          <Container> 
+            {/* Website name */}
+            <Navbar.Brand href="/">Navbar</Navbar.Brand> 
 
-  return (
-    <div>
-      <BrowserRouter>
+            {/* Navigation links */}
+            <Nav className="me-auto"> 
+              {/* Home link */}
+              <Nav.Link href="/">Home</Nav.Link> 
 
-     <Navbar bg="primary" data-bs-theme="dark">
-          <Container>
-            <Navbar.Brand href="/">Navbar</Navbar.Brand>
-            <Nav className="me-auto">
-              <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/Header">Header</Nav.Link>
-              <Nav.Link href="/Footer">Footer</Nav.Link>
-            </Nav>
-          </Container>
-        </Navbar>
+              {/* Header link */}
+              <Nav.Link href="/Header">Header</Nav.Link> 
 
-        <Routes>
-          <Route path='/' element={<Content></Content>}></Route>
-          <Route path='/header' element={<Header></Header>}></Route>
-          <Route path='/footer' element={<Footer></Footer>}></Route>
-          </Routes>
-          {/* <Header></Header>
-          <Content></Content>
-          <Footer></Footer> */}
+              {/* Footer link */}
+              <Nav.Link href="/Footer">Footer</Nav.Link> 
+            </Nav> 
+          </Container> 
+        </Navbar> 
+ 
+        {/* Different routes for the pages */}
+        <Routes> 
 
-        </BrowserRouter>
+          {/* Home page */}
+          <Route path='/' element={<Content></Content>}></Route> 
 
-      </div>
-      
-  )
-}
+          {/* Header page */}
+          <Route path='/header' element={<Header></Header>}></Route> 
 
+          {/* Footer page */}
+          <Route path='/footer' element={<Footer></Footer>}></Route> 
+
+          </Routes> 
+          {/* <Header></Header> 
+          <Content></Content> 
+          <Footer></Footer> */} 
+ 
+        </BrowserRouter> 
+ 
+      </div> 
+       
+  ) 
+} 
+ 
+// Exporting the App component
 export default App
